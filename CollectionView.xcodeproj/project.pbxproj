@@ -20,6 +20,8 @@
 		082C374C27D8F0990051A155 /* CatLandmarkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C374B27D8F0990051A155 /* CatLandmarkCollectionViewCell.swift */; };
 		082C374E27D909250051A155 /* PlaceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C374D27D909250051A155 /* PlaceDetailsViewController.swift */; };
 		0899CA2B27E1D8B0001F8D38 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CA2A27E1D8B0001F8D38 /* SectionHeaderView.swift */; };
+		0899CA2D27E2373D001F8D38 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CA2C27E2373D001F8D38 /* SearchTableViewController.swift */; };
+		0899CA2F27E2385F001F8D38 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CA2E27E2385F001F8D38 /* JsonHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		082C374B27D8F0990051A155 /* CatLandmarkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatLandmarkCollectionViewCell.swift; sourceTree = "<group>"; };
 		082C374D27D909250051A155 /* PlaceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsViewController.swift; sourceTree = "<group>"; };
 		0899CA2A27E1D8B0001F8D38 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		0899CA2C27E2373D001F8D38 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		0899CA2E27E2385F001F8D38 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				082C374B27D8F0990051A155 /* CatLandmarkCollectionViewCell.swift */,
 				082C374D27D909250051A155 /* PlaceDetailsViewController.swift */,
 				0899CA2A27E1D8B0001F8D38 /* SectionHeaderView.swift */,
+				0899CA2C27E2373D001F8D38 /* SearchTableViewController.swift */,
+				0899CA2E27E2385F001F8D38 /* JsonHelper.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -163,10 +169,12 @@
 				082C374A27D8DC880051A155 /* LandmarkCollectionViewCell.swift in Sources */,
 				082C373027D89FBF0051A155 /* ViewController.swift in Sources */,
 				082C374E27D909250051A155 /* PlaceDetailsViewController.swift in Sources */,
+				0899CA2F27E2385F001F8D38 /* JsonHelper.swift in Sources */,
 				082C374027D8A0360051A155 /* Colors.swift in Sources */,
 				0899CA2B27E1D8B0001F8D38 /* SectionHeaderView.swift in Sources */,
 				082C372C27D89FBF0051A155 /* AppDelegate.swift in Sources */,
 				082C372E27D89FBF0051A155 /* SceneDelegate.swift in Sources */,
+				0899CA2D27E2373D001F8D38 /* SearchTableViewController.swift in Sources */,
 				082C374627D8BBDC0051A155 /* Landmark.swift in Sources */,
 				082C374C27D8F0990051A155 /* CatLandmarkCollectionViewCell.swift in Sources */,
 			);

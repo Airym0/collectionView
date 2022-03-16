@@ -24,45 +24,29 @@ class AcceuilViewController: UICollectionViewController {
     var diffableDataSource : UICollectionViewDiffableDataSource<Section, Item>!
     
     private var landmarks : [Landmark] = []
-
+    private var names : [String] = []
+    private var vc : SearchTableViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        landmarks = parse(jsonData: readLocalFile(forName: "landmarkData")!)
+        landmarks = JsonHelper.sharedJsonHelper.parse(jsonData: JsonHelper.sharedJsonHelper.readLocalFile(forName: "landmarkData")!)
         configureDataSource()
         collectionView.collectionViewLayout = createLayout()
         reloadList(landmarks: landmarks)
-        let searchController = UISearchController(searchResultsController: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        vc = (storyboard.instantiateViewController(withIdentifier: "SearchTableViewController") as! SearchTableViewController)
+        
+        for landmark in landmarks {
+            names.append(landmark.name)
+        }
+        
+        let searchController = UISearchController(searchResultsController: vc)
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
     }
     
-    private func parse(jsonData: Data) -> [Landmark] {
-        do {
-            let decodedData = try JSONDecoder().decode([Landmark].self,
-                                                       from: jsonData)
-            for data in decodedData{
-                print("Title: ", data.name)
-            }
-            return decodedData
-        } catch {
-            print("decode error")
-            return []
-        }
-    }
-    
-    private func readLocalFile(forName name: String) -> Data? {
-        do {
-            if let bundlePath = Bundle.main.path(forResource: name,
-                                                 ofType: "json"),
-                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8) {
-                return jsonData
-            }
-        } catch {
-            print(error)
-        }
-        
-        return nil
-    }
     
     private func configureDataSource(){
         diffableDataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
@@ -96,9 +80,6 @@ class AcceuilViewController: UICollectionViewController {
             case .mountains:
                 sectionHeaderView.categoryTitle = "Montagnes"
             }
-            
-            
-            
             
             return sectionHeaderView
             
@@ -197,14 +178,16 @@ class AcceuilViewController: UICollectionViewController {
 extension AcceuilViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchQuery = searchController.searchBar.text, !searchQuery.isEmpty else {
-            reloadList(landmarks: landmarks)
+            vc.reloadList(names: names)
             return
         }
-        let filteredLandmarks = landmarks.filter { landmark in
-            return landmark.name.localizedCaseInsensitiveContains(searchQuery)
+        let filteredNames = names.filter { name in
+            return name.localizedCaseInsensitiveContains(searchQuery)
         }
         
-        reloadList(landmarks: filteredLandmarks)
+        vc.reloadList(names: filteredNames)
     }
 }
+
+
 
